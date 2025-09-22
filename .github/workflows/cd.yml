@@ -32,12 +32,8 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v3
 
-      - name: Debug GCP_PROJECT_ID
-        run: |
-          echo "Project ID is: ${{ secrets.GCP_PROJECT_ID }}"
-
       - name: Set GCP project
-        run: gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+        run: gcloud config set project notely-472906
 
       - name: Build and push image to Google Artifact Registry
         run: gcloud builds submit --tag asia-east2-docker.pkg.dev/notely-472906/notely-ar-repo/alihasan001/notely:latest .
